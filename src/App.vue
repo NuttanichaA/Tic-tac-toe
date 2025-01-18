@@ -5,9 +5,9 @@
   const gamecells = ref(null)
   const cells = ref(['', '', '', '', '', '', '', '', ''])
 
-  onMounted(() => {
-    gamecells.value.push(cells)
-  })
+  // onMounted(() => {
+  //   gamecells.value.push(cells)
+  // })
 
  const calculateWinner = (cells) => {
   const lines = [
@@ -22,7 +22,7 @@
   ]
 
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+    const [a, b, c] = lines[i]; //destructuring
     if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
       return cells[a];
     }
@@ -73,7 +73,7 @@ const drawCheck = computed(() => {
         {{ cell }}
       </div>
     </div>
-    <h2 v-if="winner !== null" class="text-6xl font-bold my-4">Player {{ winner }} WINS</h2>
+    <h2 v-if="winner !== null" class="text-6xl font-bold my-4">Player {{ winner }} WINS!!</h2>
     <h2 v-if="drawCheck" class="text-6xl font-bold my-4">It's a DRAW!!</h2>
     <button @click="reset" class="px-4 py-2 border-2 border-black rounded-md my-4">Reset Game</button>
   </div>
